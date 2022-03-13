@@ -30,18 +30,6 @@ mongoose.connect(
     console.log("Connected To Mongo");
   }
 );
-// jwt
-const NAMESPACE = 'Server';
-mongoose
-    .connect(config.mongo.url, config.mongo.options)
-    .then((result) => {
-        Logging.info(NAMESPACE, 'Mongo Connected');
-    })
-    .catch((error) => {
-      Logging.error(NAMESPACE, error.message, error);
-    });
-
-// Middleware
 const app = express();
 app.use(express.json());
 app.use(cors({ origin: "http://localhost:3000", credentials: true }));
